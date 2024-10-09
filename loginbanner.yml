@@ -1,0 +1,18 @@
+---
+- name: Network Getting Started
+  gather_facts: false
+  hosts: Arista
+  tasks:
+
+    - name: configure the login banner
+      arista.eos.eos_banner:
+        banner: login
+        text: |
+          DONT FUCK WITH ME!!!!!!!!!
+        state: present
+    - name: configure the motd banner
+      arista.eos.eos_banner:
+        banner: motd
+        text:
+          FUCK WIT ME AND DIE!!!
+        state: present
