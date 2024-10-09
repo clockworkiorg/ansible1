@@ -1,0 +1,13 @@
+---
+- name: Network Getting Started
+  gather_facts: false
+  hosts: Arista
+  tasks:
+
+    - name: get config for arista devices
+      arista.eos.eos_facts:
+        gather_subset: all
+    
+    - name: Display the config
+      debug:
+        msg: "The hostname is {{ ansible_net_hostname }} and the OS is {{ ansible_net_version }}"
